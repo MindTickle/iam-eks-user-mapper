@@ -4,6 +4,9 @@
 # What it does
 If you are using EKS for your cluster and IAM to manage your AWS users, this tool allows you to create and manage EKS users and their groups on the basis of your IAM groups with fine-grained access control.
 
+More about IAM Groups: [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html)
+More about Kubernetes RBAC: [https://kubernetes.io/docs/reference/access-authn-authz/rbac/](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+
 ### Example usecase
 Assuming you have 2 IAM groups `devops` and `devs`, and you want to give devops's members `system:masters` role and devs a `developer` role, you can do that via:
 
