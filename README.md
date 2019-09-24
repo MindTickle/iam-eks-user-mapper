@@ -1,6 +1,5 @@
 # IAM EKS User Mapper
 
-Derived from the works of [ygrene's](https://github.com/ygrene) [IAM EKS Mapper](https://github.com/ygrene/iam-eks-user-mapper)
 
 # What it does
 If you are using EKS for your cluster and IAM to manage your AWS users, this tool allows you to create and manage EKS users and their groups on the basis of your IAM groups with fine-grained access control.
@@ -48,3 +47,7 @@ EKS uses a configmap `aws-auth` in the namespace `kube-system`. It manages your 
 
 1. Option to give specific IAM Users access as well (will be a union if that user is part of a provided IAM group as well)
 2. Improved CLI Experience
+
+## Thanks
+
+Inspired from [ygrene's](https://github.com/ygrene) [IAM EKS Mapper](https://github.com/ygrene/iam-eks-user-mapper)
