@@ -1,0 +1,30 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: kube-system
+  name: iam-eks-user-mapper
+  labels:
+    app: iam-eks-user-mapper
+spec:
+  selector:
+    matchLabels:
+      app: iam-eks-user-mapper
+  template:
+    metadata:
+      annotations:
+        iam.amazonaws.com/role: "{{ ROLE_ARN }}"
+      labels:
+        app: iam-eks-user-mapper
+    spec:
+      containers:
+        - name: deployment
+          image: docker.io/yashmehrotra/iam-eks-user-mapper:latest
+          env:
+            - name: AWS_REGION
+              value: ap-southeast-1
+          command:
+            - ./app
+            - --iam-k8s-group
+            - "devops::system:masters,devs::devs"
+      automountServiceAccountToken: true
+      serviceAccountName: iam-eks-user-mapper
