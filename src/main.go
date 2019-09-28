@@ -72,6 +72,16 @@ func main() {
 				Groups:   userRole.K8sRoles,
 			})
 		}
+
+		// If there are no users to add, the config map will be empty
+		// Since this will never be the intended purpose of the user
+		// and this case is more likely to happen due to a bug
+		// we'll just skip the changes
+		if len(newConfig) == 0 {
+			golog.Info("No users found, config will not be changed")
+			continue
+		}
+
 		roleStr, err := yaml.Marshal(newConfig)
 		if err != nil {
 			golog.Error(err)
