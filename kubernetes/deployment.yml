@@ -20,8 +20,8 @@ spec:
         - name: deployment
           image: docker.io/yashmehrotra/iam-eks-user-mapper:latest
           env:
-            - name: AWS_REGION
-              value: ap-southeast-1
+            - name: AWS_IAM_ACCOUNT_ROLE_ARN
+              value: "{{ AWS_IAM_ACCOUNT_ROLE_ARN }}"
           command:
             - ./app
             - --iam-k8s-group

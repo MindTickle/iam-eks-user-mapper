@@ -36,7 +36,7 @@ Example usages
 3.
   - If you are using an IAM Role, add the ARN for it in `kubernetes/deployment.yml` path: `spec.template.metadata.annotations` with annotation `iam.amazonaws.com/role`: `ROLE_ARN`
   - If you are using an IAM User, add environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` in `kubernetes/deployment.yml` path: `spec.template.spec.containers.0.env`
-4. Update the `AWS_REGION` environment variable in `kubernetes/deployment.yml` if you aren't running in `ap-southeast-1` with your EKS cluster
+4. If you manage multiple AWS Accounts and want to fetch IAM roles from a different account than your current cluster's, set the env var `AWS_IAM_ACCOUNT_ROLE_ARN` in your deployment.yml, else remove the variable from the deployment spec.
 5. Edit the `kubernetes/deployment.yml` `command:` with both the IAM group name you want to provide access to, and the Kubernetes group each user in the group should be mapped to.
 6. Finally:
 ```bash
