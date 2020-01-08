@@ -12,6 +12,10 @@ import (
 	"github.com/kataras/golog"
 )
 
+const (
+	maxItems int64 = 500
+)
+
 func getAwsIamGroup(groupName string) *iam.GetGroupOutput {
 	sess := session.Must(session.NewSession())
 	config := &aws.Config{}
@@ -27,6 +31,7 @@ func getAwsIamGroup(groupName string) *iam.GetGroupOutput {
 	iamClient := iam.New(sess, config)
 	group, err := iamClient.GetGroup(&iam.GetGroupInput{
 		GroupName: aws.String(groupName),
+		MaxItems:  aws.Int64(maxItems),
 	})
 	if err != nil {
 		if aerr, ok := err.(awserr.Error); ok {
