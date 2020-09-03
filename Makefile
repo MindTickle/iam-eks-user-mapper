@@ -1,6 +1,6 @@
 .PHONY: build deploy
 
-DOCKER_IMAGE='yashmehrotra/iam-eks-user-mapper:latest'
+DOCKER_IMAGE='191195949309.dkr.ecr.ap-southeast-1.amazonaws.com/devops/iam-eks-user-mapper:latest'
 
 docker_build:
 	docker build -t ${DOCKER_IMAGE} .

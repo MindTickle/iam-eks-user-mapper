@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: deployment
-          image: docker.io/yashmehrotra/iam-eks-user-mapper:latest
+          image: 191195949309.dkr.ecr.ap-southeast-1.amazonaws.com/devops/iam-eks-user-mapper:latest
           env:
             - name: AWS_IAM_ACCOUNT_ROLE_ARN
               value: "{{ AWS_IAM_ACCOUNT_ROLE_ARN }}"
